@@ -13,6 +13,10 @@ import project1_3 from "@/assets/project-1-3.jpg";
 import project1_4 from "@/assets/project-1-4.jpg";
 import project1_5 from "@/assets/project-1-5.jpg";
 import project2 from "@/assets/project-2.jpg";
+import project2_2 from "@/assets/project-2-2.jpg";
+import project2_3 from "@/assets/project-2-3.jpg";
+import project2_4 from "@/assets/project-2-4.jpg";
+import project2_5 from "@/assets/project-2-5.jpg";
 
 const Projects = () => {
   const projects = [
@@ -27,7 +31,7 @@ const Projects = () => {
       id: 2,
       title: "Luxury Townhomes",
       location: "Atlanta, Georgia",
-      images: [project2], // Single image
+      images: [project2, project2_2, project2_3, project2_4, project2_5], // Carousel with 5 images
       description: "5-bed, 3-bath, 2,200+ sqft luxury townhomes in Oakland City featuring Italian-inspired chef's kitchens with Samsung Chef appliances, custom closets, high/arched ceilings, EV-ready garages, and open-concept living.",
     },
   ];
