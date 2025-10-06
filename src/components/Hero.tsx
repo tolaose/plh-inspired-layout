@@ -17,10 +17,10 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 uppercase tracking-wide">
-          Redefining Luxury
+          Halsey Park
         </h1>
         <p className="text-xl md:text-2xl text-primary-foreground/90 mb-12 max-w-3xl mx-auto font-light tracking-wide">
-          Modern architectural excellence meets timeless design at Hasley Park
+          A full-fledged Real Estate Development Company of modern luxury homes in Atlanta, Georgia.
         </p>
         <Button variant="cta" size="lg" asChild>
           <a href="#contact">Get Started Today</a>
