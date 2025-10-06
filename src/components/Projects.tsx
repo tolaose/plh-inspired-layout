@@ -25,10 +25,10 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: "Architectural Villa",
-      location: "Sandy Springs",
+      title: "Luxury Townhomes",
+      location: "Atlanta, Georgia",
       images: [project2], // Single image
-      description: "An elegant 5,800 sq ft modern villa with minimalist design, infinity pool, and state-of-the-art smart home technology throughout.",
+      description: "5-bed, 3-bath, 2,200+ sqft luxury townhomes in Oakland City featuring Italian-inspired chef's kitchens with Samsung Chef appliances, custom closets, high/arched ceilings, EV-ready garages, and open-concept living.",
     },
   ];
 
