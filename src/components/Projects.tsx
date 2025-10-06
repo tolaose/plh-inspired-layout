@@ -7,6 +7,10 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import project1 from "@/assets/project-1.jpg";
+import project1_2 from "@/assets/project-1-2.jpg";
+import project1_3 from "@/assets/project-1-3.jpg";
+import project1_4 from "@/assets/project-1-4.jpg";
+import project1_5 from "@/assets/project-1-5.jpg";
 import project2 from "@/assets/project-2.jpg";
 
 const Projects = () => {
@@ -15,7 +19,7 @@ const Projects = () => {
       id: 1,
       title: "Modern Masterpiece",
       location: "Mableton, Georgia",
-      images: [project1, project1, project1, project1, project1], // Carousel with 5 image slots
+      images: [project1, project1_2, project1_3, project1_4, project1_5], // Carousel with 5 images
       description: "Step inside this newly built modern masterpiece where architectural brilliance meets refined living. From the LED-lit floating stairs and Italian quartz finishes to resort-style amenities, every detail is designed to elevate your lifestyle in elegance and convenience.",
     },
     {
