@@ -6,6 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import project1 from "@/assets/project-1.jpg";
 import project1_2 from "@/assets/project-1-2.jpg";
 import project1_3 from "@/assets/project-1-3.jpg";
@@ -51,7 +52,14 @@ const Projects = () => {
             >
               <div className="relative overflow-hidden">
                 {project.images.length > 1 ? (
-                  <Carousel className="w-full">
+                  <Carousel 
+                    className="w-full"
+                    plugins={[
+                      Autoplay({
+                        delay: 5000,
+                      }),
+                    ]}
+                  >
                     <CarouselContent>
                       {project.images.map((image, index) => (
                         <CarouselItem key={index}>
