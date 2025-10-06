@@ -6,10 +6,10 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "Modern Estate",
-      location: "Buckhead, Atlanta",
+      title: "Modern Masterpiece",
+      location: "Mableton, Georgia",
       image: project1,
-      description: "A stunning 6,500 sq ft contemporary masterpiece featuring expansive glass walls, custom finishes, and seamless indoor-outdoor living spaces.",
+      description: "Step inside this newly built modern masterpiece where architectural brilliance meets refined living. From the LED-lit floating stairs and Italian quartz finishes to resort-style amenities, every detail is designed to elevate your lifestyle in elegance and convenience.",
     },
     {
       id: 2,
