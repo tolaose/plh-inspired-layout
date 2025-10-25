@@ -10,15 +10,56 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Replace this with your Zapier webhook URL
+  const ZAPIER_WEBHOOK_URL = "YOUR_ZAPIER_WEBHOOK_URL_HERE";
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your interest. We'll be in touch soon.",
-    });
-    setFormData({ name: "", email: "", message: "" });
+    
+    if (ZAPIER_WEBHOOK_URL === "YOUR_ZAPIER_WEBHOOK_URL_HERE") {
+      toast({
+        title: "Setup Required",
+        description: "Please configure your Zapier webhook URL in the Contact component.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      await fetch(ZAPIER_WEBHOOK_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for your interest. We'll be in touch soon.",
+      });
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error sending to Zapier:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -77,8 +118,8 @@ const Contact = () => {
             />
           </div>
           <div className="text-center">
-            <Button type="submit" variant="cta">
-              Send Message
+            <Button type="submit" variant="cta" disabled={isLoading}>
+              {isLoading ? "Sending..." : "Send Message"}
             </Button>
           </div>
         </form>
