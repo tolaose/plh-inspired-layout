@@ -1,9 +1,8 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -12,29 +11,13 @@ const Contact = () => {
     message: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
   const { toast } = useToast();
 
   // Replace this with your Zapier webhook URL
   const ZAPIER_WEBHOOK_URL = "https://hooks.zapier.com/hooks/catch/25143972/ui676x8/";
-  
-  // Replace this with your Google reCAPTCHA site key
-  // Get one at: https://www.google.com/recaptcha/admin
-  const RECAPTCHA_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"; // This is a test key, replace with your own
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!captchaToken) {
-      toast({
-        title: "Verification Required",
-        description: "Please complete the reCAPTCHA verification.",
-        variant: "destructive",
-      });
-      return;
-    }
-
     setIsLoading(true);
 
     try {
@@ -57,8 +40,6 @@ const Contact = () => {
         description: "Thank you for your interest. We'll be in touch soon.",
       });
       setFormData({ name: "", email: "", message: "" });
-      setCaptchaToken(null);
-      recaptchaRef.current?.reset();
     } catch (error) {
       console.error("Error sending to Zapier:", error);
       toast({
@@ -126,14 +107,8 @@ const Contact = () => {
               placeholder="Tell us about your project..."
             />
           </div>
-          <div className="flex flex-col items-center gap-4">
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              sitekey={RECAPTCHA_SITE_KEY}
-              onChange={(token) => setCaptchaToken(token)}
-              onExpired={() => setCaptchaToken(null)}
-            />
-            <Button type="submit" variant="cta" disabled={isLoading || !captchaToken}>
+          <div className="text-center">
+            <Button type="submit" variant="cta" disabled={isLoading}>
               {isLoading ? "Sending..." : "Send Message"}
             </Button>
           </div>
