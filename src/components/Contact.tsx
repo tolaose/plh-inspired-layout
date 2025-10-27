@@ -14,12 +14,12 @@ const Contact = () => {
   const { toast } = useToast();
 
   // Replace this with your Zapier webhook URL
-  const ZAPIER_WEBHOOK_URL = "YOUR_ZAPIER_WEBHOOK_URL_HERE";
+  const ZAPIER_WEBHOOK_URL = "https://hooks.zapier.com/hooks/catch/25143972/ui676x8/";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (ZAPIER_WEBHOOK_URL === "YOUR_ZAPIER_WEBHOOK_URL_HERE") {
+    if (ZAPIER_WEBHOOK_URL === "https://hooks.zapier.com/hooks/catch/25143972/ui676x8/") {
       toast({
         title: "Setup Required",
         description: "Please configure your Zapier webhook URL in the Contact component.",
